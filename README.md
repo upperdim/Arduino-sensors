@@ -1,3 +1,3 @@
-Making use of various sensors thanks to simplicity of the Arduino. 
+Making use of various sensors with Arduino. 
 
-Note: Each project require different arrangements and connections on the physical board.
+Note: Each project requires different arrangement and connections on the physical board.
