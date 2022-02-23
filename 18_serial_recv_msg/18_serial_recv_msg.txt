@@ -1,0 +1,37 @@
+/*
+ * Fetch sensor info from the Arduino upon sending a message from the serial.
+ */
+
+const int analogPin1 = A0;
+const int analogPin2 = A1;
+const int digitalPin = 2;
+
+int incomingSerialByte = 0;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial)
+    ; // wait for serial port to connect. Needed for native USB port only
+
+  pinMode(digitalPin, INPUT);
+  establishContact(); // send a byte to establish contact until receiver responds
+}
+
+void loop() {
+  // if we get a valid byte, read sensors
+  if (Serial.available() > 0) {
+    incomingSerialByte = Serial.read();
+    Serial.print(analogRead(analogPin1));
+    Serial.print(",");
+    Serial.print(analogRead(analogPin2));
+    Serial.print(",");
+    Serial.println(digitalRead(digitalPin) ? 255 : 0);
+  }
+}
+
+void establishContact() {
+  while (Serial.available() <= 0) {
+    Serial.println("Waiting for a signal from the computer...");
+    delay(300);
+  }
+}
