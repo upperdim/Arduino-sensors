@@ -1,3 +1,1 @@
-Making use of various sensors with Arduino. 
-
-Note: Each project requires different arrangement and connections on the physical board.
+At the current state, this repository is making use of various sensors with Arduino. Thus, project requires different arrangement and connections on the physical board. Pieces will be assembled together to be used by a single project which will be the final smart home prototype.
